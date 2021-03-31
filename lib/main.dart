@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:pesu_app/models/root.dart';
+
+import 'package:pesu_app/services/auth.dart';
 
 void main() {
   runApp(MyApp());
@@ -22,7 +25,9 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: RootPage(
+        auth: new Auth(),
+      ),
     );
   }
 }

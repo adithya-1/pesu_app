@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "925188993809",
+    "project_id": "pesu-app-5eb62",
+    "storage_bucket": "pesu-app-5eb62.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:925188993809:android:dec0a268bc37a5653752b0",
+        "android_client_info": {
+          "package_name": "com.example.pesu_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "925188993809-ebg4d9gjjsd9icifh8mg025bns7rq8b1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDGxs4L1CSVxMq_1SLv5GaHNHTTaFhSIYM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "925188993809-ebg4d9gjjsd9icifh8mg025bns7rq8b1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -31,7 +31,6 @@ class _RootPageState extends State<RootPage> {
     super.initState();
 
     widget.auth.getCurrentUser().then((user) {
-      print(user);
       setState(() {
         if (user != null) {
           _userId = user?.uid;

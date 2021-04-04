@@ -103,7 +103,9 @@ class _LandingPageState extends State<LandingPage> {
     return {
       '/': (context) {
         return [
-          Attendance(),
+          Attendance(
+            userId: widget.userId,
+          ),
           Notifications(),
           FeedBack(
             userId: widget.userId,

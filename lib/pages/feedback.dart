@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:math';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -25,12 +26,17 @@ class _FeedBackState extends State<FeedBack> {
           String teacherName = '';
 
           snapshot.data.documents.forEach((element) {
+            print(element.data[widget.userId]);
             if (element.data[widget.userId] != null) {
               subjectName = element.data[widget.userId]['subject'];
               teacherName = element.data[widget.userId]['name'];
 
               String temp = 'Was good at explaining';
-              List listi = json.decode(element.data[widget.userId][temp]);
+              List listi = [];
+              listi = json.decode(element.data[widget.userId][temp]);
+              print('AAAAAA1');
+              print(listi);
+              print(listi.length);
               feedback.add([
                 temp,
                 listi.length != 0
@@ -39,44 +45,55 @@ class _FeedBackState extends State<FeedBack> {
                         listi.length
                     : 0
               ]);
+
               temp = 'Taught at appropriate pace';
               listi = json.decode(element.data[widget.userId][temp]);
+              print('AAAAAA2');
+              print(listi);
               feedback.add([
                 temp,
-                listi.length != 0
+                (listi.length ?? 0) != 0
                     ? (listi.fold(
-                            0, (previous, current) => previous + current)) /
-                        listi.length
+                                0, (previous, current) => previous + current)) /
+                            listi.length ??
+                        1
                     : 0
               ]);
               temp = 'Was able to complete syllabus within time';
+
               listi = json.decode(element.data[widget.userId][temp]);
+              print('AAAAAA3');
               feedback.add([
                 temp,
-                listi.length != 0
+                (listi.length ?? 0) != 0
                     ? (listi.fold(
-                            0, (previous, current) => previous + current)) /
-                        listi.length
+                                0, (previous, current) => previous + current)) /
+                            listi.length ??
+                        1
                     : 0
               ]);
               temp = 'Was available to answer questions during office hours';
               listi = json.decode(element.data[widget.userId][temp]);
+              print('AAAAAA4');
               feedback.add([
                 temp,
-                listi.length != 0
+                (listi.length ?? 0) != 0
                     ? (listi.fold(
-                            0, (previous, current) => previous + current)) /
-                        listi.length
+                                0, (previous, current) => previous + current)) /
+                            listi.length ??
+                        1
                     : 0
               ]);
-              temp = 'Overall rating';
+              temp = "Overall rating";
               listi = json.decode(element.data[widget.userId][temp]);
+              print('AAAAA5');
               feedback.add([
                 temp,
-                listi.length != 0
+                (listi.length ?? 0) != 0
                     ? (listi.fold(
-                            0, (previous, current) => previous + current)) /
-                        listi.length
+                                0, (previous, current) => previous + current)) /
+                            listi.length ??
+                        1
                     : 0
               ]);
             }
@@ -88,7 +105,7 @@ class _FeedBackState extends State<FeedBack> {
                 Text(teacherName),
                 ListView.builder(
                     shrinkWrap: true,
-                    itemCount: feedback.length,
+                    itemCount: feedback.length ?? 0,
                     itemBuilder: (BuildContext context, int index) {
                       return ListTile(
                         title: Text(feedback[index][0].toString()),
@@ -416,7 +433,7 @@ class _FeedBackState extends State<FeedBack> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Container(
-                                    width: 70,
+                                    width: 100,
                                     height: 70,
                                     decoration: BoxDecoration(
                                         borderRadius: BorderRadius.all(

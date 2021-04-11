@@ -34,7 +34,7 @@ class _AttendanceState extends State<Attendance> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
-                width: 70,
+                width: text == 'Continue' ? 100 : 70,
                 height: 70,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.all(Radius.circular(8)),
